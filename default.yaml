@@ -1,0 +1,28 @@
+device: "cuda"  # set to "cpu" if CUDA not available
+
+data:
+  root: "data/dummy"
+  train_file: "train.npz"
+  val_file: "val.npz"
+  batch_size: 4
+  num_workers: 0
+
+model:
+  seq_hidden_dim: 256
+  mesh_hidden_dim: 256
+  para_hidden_dim: 128
+  fused_dim: 512
+  diffusion_latent_dim: 256
+  sdf_hidden_dim: 256
+
+diffusion:
+  timesteps: 100
+  beta_start: 1.0e-4
+  beta_end: 2.0e-2
+
+train:
+  epochs: 2
+  lr: 1.0e-4
+  grad_clip: 1.0
+  log_interval: 10
+  save_dir: "checkpoints"
